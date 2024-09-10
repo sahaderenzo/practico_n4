@@ -11,20 +11,17 @@ import java.io.Serializable;
 import java.util.Date;
 
 
-@Getter
-@Builder
-@Setter
-@ToString
-@EqualsAndHashCode
+
+
 @Entity
 @Table(name="REVISION_INFO")
 @RevisionEntity(CustomRevisionListener.class)
+@Data
 public class Revision implements Serializable {
-    private static final long serialVersionID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "revision_seq")
-    @SequenceGenerator(name = "revision_seq", sequenceName = "revision_sequence", allocationSize = 1)
+    @SequenceGenerator(name = "revision_seq", sequenceName = "seq_revision_id")
     @RevisionNumber
     private int id;
 
